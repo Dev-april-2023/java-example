@@ -1,24 +1,23 @@
 pipeline{
- agent any
- tool {
-     maven 'maven'
- }
+    agent any
+}
 stages {
-    stage ('Build') {
-        steps{
-            sh 'mvn clean package'
-        }
-    post{
-        success {
-            ech0 "Archiving the Artifacts"
-            ArchiveArtifacts Artifacts: '**/target/*.war'
-         }
-        }     
-    }
-}
-stage ('Deploy to tomcat server') {
+  stage('checkout') {
     steps {
-        deploy adapters: [tomcat9(credentialsId: 'apache-tomcat', path: '', url: 'http://35.154.254.156:8080/')], contextPath: null, war: '**/*.war'
+      echo "this is checkout stage"
     }
-}
+  }
+
+  stage('build') {
+    steps {
+      echo "this is checkout build stage"
+    }
+  }
+
+  stage('deploy') {
+    steps {
+      echo "this is checkout deploy"
+    }
+  }
+
 }
