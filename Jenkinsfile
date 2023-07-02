@@ -4,19 +4,19 @@ pipeline{
 stages {
   stage('checkout') {
     steps {
-      git branch: 'main', url: 'https://github.com/Dev-april-2023/java-example.git'
+      echo "this is checkout stage"
     }
   }
 
   stage('build') {
     steps {
-      sh 'mvn clean install'
+      echo "this is checkout build stage"
     }
   }
 
-  stage('deply') {
+  stage('deploy') {
     steps {
-      git --version 
+      echo "this is checkout deploy"
     }
   }
 
